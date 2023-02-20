@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import { fonts } from '@themes';
 import If from '@molecules/If';
 import CharacterWithQuote from '@molecules/CharacterWithQuote';
-import LogoWithInstructions from '@molecules/LogoWithInstructions';
+import CustomIntructions from '@molecules/CustomMolecule';
 
 const Error = styled.Text`
   ${fonts.style.standard()};
@@ -22,15 +22,16 @@ const SeparatedView = styled.View`
 function SimpsonsLoveWednesday({ instructions, user, userErrorMessage }) {
   return (
     <>
-      <LogoWithInstructions instructions={instructions} />
+    <CustomIntructions instructions = {instructions}/>
+      {/* <CustomIntructions instructions={instructions} />
       <If
         condition={!userErrorMessage}
         otherwise={<Error>{userErrorMessage}</Error>}
-      >
-        <SeparatedView>
-          <CharacterWithQuote user={user} />
-        </SeparatedView>
-      </If>
+      > */}
+        {/* <SeparatedView>
+          <CharacterWithQuote user={{ characters: 'Neeraj' }} />
+        </SeparatedView> */}
+      {/* </If> */}
     </>
   );
 }
