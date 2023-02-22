@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
-import { fonts, images } from '@themes';
+import { fonts } from '@themes';
 import T from '@atoms/T';
 
 const styles = {

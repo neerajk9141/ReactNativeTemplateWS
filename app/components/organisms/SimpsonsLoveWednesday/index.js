@@ -1,45 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components/native';
-import { fonts } from '@themes';
-import If from '@molecules/If';
-import CharacterWithQuote from '@molecules/CharacterWithQuote';
-import CustomIntructions from '@molecules/CustomMolecule';
 
-const Error = styled.Text`
-  ${fonts.style.standard()};
-  text-align: center;
-  margin-bottom: 5px;
-  color: red;
-`;
+import CustomNavigationBar from '@app/components/molecules/NavigationBar';
 
-const SeparatedView = styled.View`
-  > * {
-    margin: 10px;
-  }
-`;
-
-function SimpsonsLoveWednesday({ instructions, user, userErrorMessage }) {
+function SimpsonsLoveWednesday() {
   return (
     <>
-    <CustomIntructions instructions = {instructions}/>
-      {/* <CustomIntructions instructions={instructions} />
-      <If
-        condition={!userErrorMessage}
-        otherwise={<Error>{userErrorMessage}</Error>}
-      > */}
-        {/* <SeparatedView>
-          <CharacterWithQuote user={{ characters: 'Neeraj' }} />
-        </SeparatedView> */}
-      {/* </If> */}
+      <CustomNavigationBar />
     </>
   );
 }
 
-SimpsonsLoveWednesday.propTypes = {
-  user: PropTypes.object,
-  instructions: PropTypes.string,
-  userErrorMessage: PropTypes.string
-};
+SimpsonsLoveWednesday.propTypes = {};
 
 export default SimpsonsLoveWednesday;
