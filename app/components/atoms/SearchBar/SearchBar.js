@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 
 import { SearchBar } from '@rneui/themed';
 
+const style = {
+  container: {
+    flex: 1,
+    backgroundColor: 'powderblue'
+  }
+};
+
 export default class AppSearchBar extends Component {
   constructor(props) {
     super(props);
@@ -19,11 +26,7 @@ export default class AppSearchBar extends Component {
 
     return (
       <SearchBar
-        style={{
-          width: '80%',
-          height: '30%',
-          backgroundColor: 'powderblue'
-        }}
+        style={style.container}
         placeholder="Type Here..."
         onChangeText={this.updateSearch}
         value={search}

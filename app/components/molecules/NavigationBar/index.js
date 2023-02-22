@@ -1,14 +1,11 @@
 import React from 'react';
-
+import { TextInput } from 'react-native-gesture-handler';
 import { View, Button } from 'react-native';
 
 import AppSearchBar from '@app/components/atoms/SearchBar/SearchBar';
 
-import { TextInput } from 'react-native-gesture-handler';
-
 const styles = {
   container: {
-    width: '100%',
     flex: 1,
     alignSelf: 'center'
   }
