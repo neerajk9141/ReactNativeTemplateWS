@@ -1,0 +1,18 @@
+import { create } from 'apisauce'
+
+// define the api
+const api = create({
+  baseURL: 'https://itunes.apple.com/',
+})
+
+const ApiManager = ({ params }) => {
+api
+  .get('search?term=' + params)
+  .then(response => response.data[0].commit.message)
+  .then((response) => response)
+}
+
+export default ApiManager();
+
+// customizing headers per-request
+// api.post('/users', { name: 'steve' }, { headers: { 'x-gigawatts': '1.21' } })

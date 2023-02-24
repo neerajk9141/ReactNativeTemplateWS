@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
+import { create } from 'apisauce';
+
 import { SearchBar } from '@rneui/themed';
+
 
 const style = {
   container: {
@@ -8,6 +11,12 @@ const style = {
     backgroundColor: 'powderblue'
   }
 };
+
+const api = create({
+  baseURL: 'https://itunes.apple.com/',
+})
+
+const getItunesItem = () => api.get('search?term=perfect')
 
 export default class AppSearchBar extends Component {
   constructor(props) {
@@ -19,7 +28,10 @@ export default class AppSearchBar extends Component {
 
   updateSearch = search => {
     this.setState({ search });
+    console.log(getItunesItem())
   };
+
+
 
   render() {
     const { search } = this.state;
