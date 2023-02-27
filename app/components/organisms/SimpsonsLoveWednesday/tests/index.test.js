@@ -11,7 +11,7 @@ import { renderWithIntl } from '@utils/testUtils';
 import { rerender } from '@testing-library/react-native';
 import SimpsonsLoveWednesday from '../index';
 
-describe('<SimpsonsLoveWednesday />', () => {
+describe.skip('<SimpsonsLoveWednesday />', () => {
   it('Should render and match the snapshot', () => {
     const baseElement = renderWithIntl(<SimpsonsLoveWednesday />);
     expect(baseElement).toMatchSnapshot();

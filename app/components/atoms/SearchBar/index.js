@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 
 import { SearchBar } from '@rneui/themed';
 
@@ -17,20 +18,22 @@ export default class AppSearchBar extends Component {
     };
   }
 
-  updateSearch = search => {
-    this.setState({ search });
+  updateSearch = () => {
+    // this.setState({ search });
+    // console.log(getItunesItem());
   };
 
   render() {
     const { search } = this.state;
 
     return (
-      <SearchBar
-        style={style.container}
-        placeholder="Type Here..."
-        onChangeText={this.updateSearch}
-        value={search}
-      />
+      <View style={style.container}>
+        <SearchBar
+          placeholder="Type Here..."
+          onChangeText={this.updateSearch}
+          value={search}
+        />
+      </View>
     );
   }
 }
