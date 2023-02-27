@@ -2,7 +2,7 @@ import React from 'react';
 import { TextInput } from 'react-native-gesture-handler';
 import { View, Button } from 'react-native';
 
-import AppSearchBar from '@app/components/atoms/SearchBar/SearchBar';
+import AppSearchBar from '@app/components/atoms/SearchBar';
 
 const styles = {
   container: {
