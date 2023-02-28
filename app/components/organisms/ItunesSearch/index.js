@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
+
 import { fonts } from '@themes';
 import If from '@molecules/If';
 import CharacterWithQuote from '@molecules/CharacterWithQuote';
@@ -14,11 +15,11 @@ const Error = styled.Text`
   color: red;
 `;
 
-const SeparatedView = styled.View`
-  > * {
-    margin: 10px;
-  }
-`;
+// const SeparatedView = styled.View`
+//   > * {
+//     margin: 10px;
+//   }
+// `;
 
 function ItunesSearch({ instructions, user, userErrorMessage }) {
   return (
@@ -29,9 +30,9 @@ function ItunesSearch({ instructions, user, userErrorMessage }) {
         condition={!userErrorMessage}
         otherwise={<Error>{userErrorMessage}</Error>}
       >
-        <SeparatedView>
-          <CharacterWithQuote user={user} />
-        </SeparatedView>
+        {/* <SeparatedView> */}
+        <CharacterWithQuote user={user} />
+        {/* </SeparatedView> */}
       </If>
     </>
   );

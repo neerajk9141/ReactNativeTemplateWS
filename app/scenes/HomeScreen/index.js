@@ -28,11 +28,11 @@ const instructions = Platform.select({
 
 class HomeScreen extends React.Component {
   componentDidMount() {
-    this.requestFetchTracks()();
+    this.requestFetchTracks();
   }
 
-  requestFetchTracks = () => () => {
-    this.props.fetchTracks();
+  requestFetchTracks = () => {
+    console.log(this.props.fetchTracks);
   };
 
   render() {

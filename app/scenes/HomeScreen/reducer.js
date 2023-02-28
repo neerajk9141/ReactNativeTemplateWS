@@ -18,7 +18,10 @@ export const initialState = fromJS({
 });
 
 export const fetchTracksFromItunes = state =>
-  state.set('fetchingTracks', true).set('fetchingTracksError', null);
+  state
+    .set('tracks', [])
+    .set('fetchingTracks', true)
+    .set('fetchingTracksError', null);
 
 export const successFetchTracks = (state, { tracks }) =>
   state

@@ -1,10 +1,11 @@
 import React from 'react';
+
 import { createStackNavigator } from '@react-navigation/stack';
 import SplashScreen from '@scenes/SplashScreen/';
-// import ExampleScreen from '@scenes/ExampleScreen';
 import { NavigationContainer } from '@react-navigation/native';
-import HomeScreen from '@app/scenes/HomeScreen';
+import HomeScreen from '@scenes/HomeScreen';
 import NavigationService from '../services/NavigationService';
+
 const Stack = createStackNavigator();
 /**
  * The root screen contains the application's navigation.
