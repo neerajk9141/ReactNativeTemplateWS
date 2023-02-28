@@ -4,4 +4,5 @@ const iTunesApi = create({
   baseURL: 'https://itunes.apple.com/'
 });
 
-export const GetItunesItem = params => iTunesApi.get(`search?term={${params}}`);
+export const getItunesItem = trackName =>
+  iTunesApi.get(`search?term={${trackName}}`);

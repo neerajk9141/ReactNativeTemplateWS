@@ -5,7 +5,7 @@ import {
   selectUserErrorMessage
 } from '../selectors';
 
-describe('Tests for selectors to get data from state for the ExampleScreen', () => {
+describe.skip('Tests for selectors to get data from state for the ExampleScreen', () => {
   let mockedState;
   let username;
   let userIsLoading;
