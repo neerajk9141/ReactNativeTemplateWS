@@ -1,21 +1,10 @@
 import React from 'react';
 import { Button, Platform, View, ActivityIndicator } from 'react-native';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
 import { PropTypes } from 'prop-types';
 import styled from 'styled-components/native';
-import { createStructuredSelector } from 'reselect';
-import { injectIntl } from 'react-intl';
 
 import AppContainer from '@atoms/Container';
 import ItunesSearch from '@organisms/ItunesSearch';
-
-import {
-  selectTracks,
-  selectTrackIsLoading,
-  selectTrackErrorMessage
-} from './selectors';
-import { homeScreenActions } from './reducer';
 
 const Container = styled(AppContainer)`
   margin: 30px;
@@ -75,15 +64,4 @@ HomeScreen.propTypes = {
   fetchTracks: PropTypes.func
 };
 
-const mapStateToProps = createStructuredSelector({
-  tracks: selectTracks(),
-  fetchingTracks: selectTrackIsLoading(),
-  fetchingTracksError: selectTrackErrorMessage()
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchTracks: () => dispatch(homeScreenActions.requestFetchTracks())
-});
-
-const withConnect = connect(mapStateToProps, mapDispatchToProps);
-export default compose(withConnect, injectIntl)(HomeScreen);
+export default HomeScreen;
