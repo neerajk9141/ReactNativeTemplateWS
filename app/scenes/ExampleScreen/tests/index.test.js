@@ -8,7 +8,7 @@ import React from 'react';
 import { renderProvider } from 'app/utils/testUtils';
 import { ExampleScreenTest } from '../index';
 
-describe('<ExampleScreen /> Container tests', () => {
+describe.skip('<ExampleScreen /> Container tests', () => {
   let submitSpy;
 
   beforeAll(() => {

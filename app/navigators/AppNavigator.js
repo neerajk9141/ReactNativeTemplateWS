@@ -1,8 +1,9 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import SplashScreen from '@scenes/SplashScreen/';
-import ExampleScreen from '@scenes/ExampleScreen';
+// import ExampleScreen from '@scenes/ExampleScreen';
 import { NavigationContainer } from '@react-navigation/native';
+import HomeScreen from '@app/scenes/HomeScreen';
 import NavigationService from '../services/NavigationService';
 const Stack = createStackNavigator();
 /**
@@ -15,7 +16,7 @@ export default function AppNavigator() {
     <NavigationContainer ref={NavigationService.setTopLevelNavigator}>
       <Stack.Navigator headerMode="none" initialRouteName="SplashScreen">
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="MainScreen" component={ExampleScreen} />
+        <Stack.Screen name="MainScreen" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
