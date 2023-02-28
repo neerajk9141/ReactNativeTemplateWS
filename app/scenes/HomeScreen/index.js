@@ -32,7 +32,7 @@ class HomeScreen extends React.Component {
   }
 
   requestFetchTracks = () => {
-    console.log(this.props.fetchTracks);
+    this.props.fetchTracks = true;
   };
 
   render() {
