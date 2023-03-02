@@ -1,10 +1,21 @@
 import React from 'react';
 import { Button, Platform, View, ActivityIndicator } from 'react-native';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { PropTypes } from 'prop-types';
 import styled from 'styled-components/native';
+import { createStructuredSelector } from 'reselect';
+import { injectIntl } from 'react-intl';
 
 import AppContainer from '@atoms/Container';
 import ItunesSearch from '@organisms/ItunesSearch';
+
+import { homeScreenActions } from './reducer';
+import {
+  selectTracks,
+  selectTrackIsLoading,
+  selectTrackErrorMessage
+} from './selector';
 
 const Container = styled(AppContainer)`
   margin: 30px;
@@ -28,11 +39,11 @@ const instructions = Platform.select({
 
 class HomeScreen extends React.Component {
   componentDidMount() {
-    this.requestFetchTracks();
+    this.requestFetchTracks('Perfect');
   }
 
-  requestFetchTracks = () => {
-    this.props.fetchTracks = true;
+  requestFetchTracks = trackName => {
+    this.props.fetchTracks(trackName);
   };
 
   render() {
@@ -48,7 +59,10 @@ class HomeScreen extends React.Component {
               user={this.props.tracks}
             />
             <CustomButtonParentView>
-              <Button onPress={this.requestFetchTracks()} title="Refresh" />
+              <Button
+                onPress={this.requestFetchTracks()}
+                title="Fetch Tracks"
+              />
             </CustomButtonParentView>
           </View>
         )}
@@ -64,4 +78,16 @@ HomeScreen.propTypes = {
   fetchTracks: PropTypes.func
 };
 
-export default HomeScreen;
+const mapStateToProps = createStructuredSelector({
+  tracks: selectTracks(),
+  fetchingTracks: selectTrackIsLoading(),
+  fetchingTracksError: selectTrackErrorMessage()
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchTracks: trackName =>
+    dispatch(homeScreenActions.requestFetchTracks(trackName))
+});
+
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
+export default compose(withConnect, injectIntl)(HomeScreen);
