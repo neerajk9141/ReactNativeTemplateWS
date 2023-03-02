@@ -6,7 +6,7 @@ export const {
   Types: homeScreenTypes,
   Creators: homeScreenActions
 } = createActions({
-  requestFetchTracks: null,
+  requestFetchTracks: ['trackName'],
   successFetchTracks: ['tracks'],
   failureFetchTracks: ['errorMessage']
 });
