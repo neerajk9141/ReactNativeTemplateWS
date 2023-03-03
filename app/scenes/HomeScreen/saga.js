@@ -1,6 +1,6 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 
-import { getItunesItem } from '@app/services/ItunesService';
+import { getItunesItem } from '@services/ItunesService';
 
 import {
   homeScreenActions,

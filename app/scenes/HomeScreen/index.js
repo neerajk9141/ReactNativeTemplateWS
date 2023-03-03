@@ -9,8 +9,10 @@ import { injectIntl } from 'react-intl';
 
 import AppContainer from '@atoms/Container';
 import ItunesSearch from '@organisms/ItunesSearch';
+import TrackItem from '@molecules/TrackItem';
 
 import { homeScreenActions } from './reducer';
+
 import {
   selectTracks,
   selectTrackIsLoading,
@@ -58,6 +60,7 @@ class HomeScreen extends React.Component {
               userErrorMessage={this.props.fetchingTracksError}
               user={this.props.tracks}
             />
+            <TrackItem />
             <CustomButtonParentView>
               <Button
                 onPress={this.requestFetchTracks()}
