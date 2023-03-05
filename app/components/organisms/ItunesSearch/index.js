@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 import { fonts } from '@themes';
 import If from '@molecules/If';
 import CustomNavigationBar from '@molecules/NavigationBar';
+import { View } from 'react-native';
 
 const Error = styled.Text`
   ${fonts.style.standard()};
@@ -15,13 +16,13 @@ const Error = styled.Text`
 
 function ItunesSearch({ userErrorMessage }) {
   return (
-    <>
-      <CustomNavigationBar />
+    <View style={{ flex: 0.165, height: 200 }}>
+      <CustomNavigationBar style={{ flex: 1, height: 200 }} />
       <If
         condition={!userErrorMessage}
         otherwise={<Error>{userErrorMessage}</Error>}
       ></If>
-    </>
+    </View>
   );
 }
 

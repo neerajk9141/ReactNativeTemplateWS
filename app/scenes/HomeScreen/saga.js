@@ -8,9 +8,9 @@ import {
   fetchTracksFromItunes
 } from './reducer';
 
-export function* fetchItunesTracks(trackName) {
+export function* fetchItunesTracks(action) {
   try {
-    const response = yield call(getItunesItem(trackName));
+    const response = yield call(getItunesItem(action.trackName));
     if (response.ok) {
       const { data } = response;
       yield put(homeScreenActions.successFetchtracks(data));

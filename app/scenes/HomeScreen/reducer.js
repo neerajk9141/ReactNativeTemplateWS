@@ -41,6 +41,7 @@ export const homeContainerReducer = (state = initialState, action) =>
       case homeScreenTypes.REQUEST_FETCH_TRACKS:
         return fetchTracksFromItunes(state, action);
       case homeScreenTypes.SUCCESS_FETCH_TRACKS:
+        console.log(action);
         return successFetchTracks(state, action);
       case homeScreenTypes.FAILURE_FETCH_TRACKS:
         return failureFetchTracks(state, action);

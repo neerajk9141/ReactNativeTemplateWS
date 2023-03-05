@@ -4,16 +4,15 @@ import {
   TouchableOpacity,
   StyleSheet,
   Text,
-  View
+  View,
+  Image
 } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.2,
+    flex: 1,
     padding: 10,
-    marginTop: 3,
-    backgroundColor: '#464646',
-    alignItems: 'center'
+    marginTop: 3
   },
   item: {
     padding: 10,
@@ -21,7 +20,7 @@ const styles = StyleSheet.create({
     height: 44
   },
   text: {
-    color: '#ffffff'
+    color: '#000000'
   }
 });
 
@@ -29,19 +28,19 @@ const state = {
   tracks: [
     {
       id: 0,
-      trackName: 'Perfect0'
+      trackName: 'Track 1'
     },
     {
       id: 1,
-      trackName: 'Perfect1'
+      trackName: 'Track 2'
     },
     {
       id: 2,
-      trackName: 'Perfect2'
+      trackName: 'Track 3'
     },
     {
       id: 3,
-      trackName: 'Perfect3'
+      trackName: 'Track 4'
     }
   ]
 };
@@ -59,7 +58,13 @@ const TrackItem = () => (
           style={styles.item}
           //   onPress={() => alertItemName(trackItem)}
         >
-          <Text style={styles.text}>{trackItem.trackName}</Text>
+          <View style={{ flexDirection: 'row' }}>
+            <Image
+              source={{ uri: 'favicon' }}
+              style={{ width: 40, height: 40 }}
+            />
+            <Text style={styles.text}>{trackItem.trackName}</Text>
+          </View>
         </TouchableOpacity>
       ))}
     </ScrollView>
