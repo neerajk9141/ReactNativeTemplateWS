@@ -17,7 +17,7 @@ export default function AppNavigator() {
     <NavigationContainer ref={NavigationService.setTopLevelNavigator}>
       <Stack.Navigator headerMode="none" initialRouteName="SplashScreen">
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="MainScreen" component={HomeScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,24 +1,21 @@
 import React from 'react';
-import { TextInput } from 'react-native-gesture-handler';
-import { View, Button } from 'react-native';
+import { View } from 'react-native';
 
-import AppSearchBar from '@app/components/atoms/SearchBar';
+import AppSearchBar from '@atoms/SearchBar';
 
 const styles = {
   container: {
     flex: 1,
-    alignSelf: 'center'
+    alignSelf: 'auto',
+    width: '90%',
+    height: 150
   }
 };
 
 function CustomNavigationBar() {
   return (
     <View style={styles.container}>
-      <View style={styles.container}>
-        <TextInput>Navigation Bar...</TextInput>
-        <Button title="Search"></Button>
-      </View>
-      <AppSearchBar></AppSearchBar>
+      <AppSearchBar />
     </View>
   );
 }

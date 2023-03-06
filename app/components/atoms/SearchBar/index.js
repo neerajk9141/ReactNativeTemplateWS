@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 
 import { SearchBar } from '@rneui/themed';
@@ -6,34 +6,22 @@ import { SearchBar } from '@rneui/themed';
 const style = {
   container: {
     flex: 1,
-    backgroundColor: 'powderblue'
+    backgroundColor: '#f2f2f2',
+    width: 370,
+    height: 200,
+    marginTop: 30
   }
 };
 
-export default class AppSearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      search: ''
-    };
-  }
-
-  updateSearch = () => {
-    // this.setState({ search });
-    // console.log(getItunesItem());
-  };
-
-  render() {
-    const { search } = this.state;
-
-    return (
-      <View style={style.container}>
-        <SearchBar
-          placeholder="Type Here..."
-          onChangeText={this.updateSearch}
-          value={search}
-        />
-      </View>
-    );
-  }
+export default function AppSearchBar() {
+  const updateSearch = () => {};
+  return (
+    <View style={style.container}>
+      <SearchBar
+        placeholder="Search tracks.."
+        onChangeText={updateSearch()}
+        value=""
+      />
+    </View>
+  );
 }

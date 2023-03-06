@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Platform, View, ActivityIndicator } from 'react-native';
+import { Button, Platform, View } from 'react-native';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { PropTypes } from 'prop-types';
@@ -9,8 +9,10 @@ import { injectIntl } from 'react-intl';
 
 import AppContainer from '@atoms/Container';
 import ItunesSearch from '@organisms/ItunesSearch';
+import TrackItem from '@molecules/TrackItem';
 
 import { homeScreenActions } from './reducer';
+
 import {
   selectTracks,
   selectTrackIsLoading,
@@ -18,11 +20,10 @@ import {
 } from './selector';
 
 const Container = styled(AppContainer)`
-  margin: 30px;
+  margin: 20px;
   flex: 1;
-  justify-content: center;
+  xwjustify-content: center;
   align-items: center;
-  max-width: 320px;
   align-self: center;
 `;
 
@@ -37,45 +38,40 @@ const instructions = Platform.select({
     'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu.'
 });
 
-class HomeScreen extends React.Component {
-  componentDidMount() {
-    this.requestFetchTracks('Perfect');
-  }
-
-  requestFetchTracks = trackName => {
-    this.props.fetchTracks(trackName);
+export function HomeScreen(props) {
+  const requestFetchTracks = trackName => {
+    props.dispatchfetchTracks(trackName);
   };
-
-  render() {
-    return (
-      <Container>
-        {this.props.fetchingTracks ? (
-          <ActivityIndicator testID="loader" size="large" color="#0000ff" />
-        ) : (
-          <View testID="example-container-content">
-            <ItunesSearch
-              instructions={instructions}
-              userErrorMessage={this.props.fetchingTracksError}
-              user={this.props.tracks}
+  return (
+    <Container style={{ backgroundColor: 'powderblue' }}>
+      {props.fetchingTracks ? (
+        <h2>loading..</h2>
+      ) : (
+        <View>
+          <ItunesSearch
+            instructions={instructions}
+            userErrorMessage={props.fetchingTracksError}
+            user={props.tracks}
+            style={{ height: '20%' }}
+          />
+          <TrackItem />
+          <CustomButtonParentView>
+            <Button
+              onPress={() => requestFetchTracks({ trackName: 'Perfect' })}
+              title="Fetch Tracks"
             />
-            <CustomButtonParentView>
-              <Button
-                onPress={this.requestFetchTracks()}
-                title="Fetch Tracks"
-              />
-            </CustomButtonParentView>
-          </View>
-        )}
-      </Container>
-    );
-  }
+          </CustomButtonParentView>
+        </View>
+      )}
+    </Container>
+  );
 }
 
 HomeScreen.propTypes = {
   tracks: PropTypes.object,
   fetchingTracks: PropTypes.bool,
   fetchingTracksError: PropTypes.string,
-  fetchTracks: PropTypes.func
+  dispatchfetchTracks: PropTypes.func
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -85,7 +81,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchTracks: trackName =>
+  dispatchfetchTracks: trackName =>
     dispatch(homeScreenActions.requestFetchTracks(trackName))
 });
 

@@ -1,11 +1,10 @@
 import React from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 
 import { fonts } from '@themes';
 import If from '@molecules/If';
-import CharacterWithQuote from '@molecules/CharacterWithQuote';
-import LogoWithInstructions from '@molecules/LogoWithInstructions';
 import CustomNavigationBar from '@molecules/NavigationBar';
 
 const Error = styled.Text`
@@ -15,32 +14,19 @@ const Error = styled.Text`
   color: red;
 `;
 
-// const SeparatedView = styled.View`
-//   > * {
-//     margin: 10px;
-//   }
-// `;
-
-function ItunesSearch({ instructions, user, userErrorMessage }) {
+function ItunesSearch({ userErrorMessage }) {
   return (
-    <>
-      <CustomNavigationBar />
-      <LogoWithInstructions instructions={instructions} />
+    <View style={{ flex: 0.165, height: 200 }}>
+      <CustomNavigationBar style={{ flex: 1, height: 200 }} />
       <If
         condition={!userErrorMessage}
         otherwise={<Error>{userErrorMessage}</Error>}
-      >
-        {/* <SeparatedView> */}
-        <CharacterWithQuote user={user} />
-        {/* </SeparatedView> */}
-      </If>
-    </>
+      ></If>
+    </View>
   );
 }
 
 ItunesSearch.propTypes = {
-  user: PropTypes.object,
-  instructions: PropTypes.string,
   userErrorMessage: PropTypes.string
 };
 

@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import get from 'lodash/get';
 import { initialState } from './reducer';
 
-export const selectHomeDomain = state => (state.example || initialState).toJS();
+export const selectHomeDomain = state => (state.home || initialState).toJS();
 
 export const selectTracks = () =>
   createSelector(selectHomeDomain, substate => get(substate, 'tracks', null));
