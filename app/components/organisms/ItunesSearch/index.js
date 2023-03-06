@@ -1,11 +1,11 @@
 import React from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 
 import { fonts } from '@themes';
 import If from '@molecules/If';
 import CustomNavigationBar from '@molecules/NavigationBar';
-import { View } from 'react-native';
 
 const Error = styled.Text`
   ${fonts.style.standard()};

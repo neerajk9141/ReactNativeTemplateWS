@@ -40,7 +40,7 @@ const instructions = Platform.select({
 
 export function HomeScreen(props) {
   const requestFetchTracks = trackName => {
-    props.fetchTracks(trackName);
+    props.dispatchfetchTracks(trackName);
   };
   return (
     <Container style={{ backgroundColor: 'powderblue' }}>
@@ -71,7 +71,7 @@ HomeScreen.propTypes = {
   tracks: PropTypes.object,
   fetchingTracks: PropTypes.bool,
   fetchingTracksError: PropTypes.string,
-  fetchTracks: PropTypes.func
+  dispatchfetchTracks: PropTypes.func
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -81,7 +81,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchTracks: trackName =>
+  dispatchfetchTracks: trackName =>
     dispatch(homeScreenActions.requestFetchTracks(trackName))
 });
 

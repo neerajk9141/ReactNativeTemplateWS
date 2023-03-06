@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
 });
 
 const state = {
+  // We are using hardcoded data for now, will update it in coming PR
   tracks: [
     {
       id: 0,
