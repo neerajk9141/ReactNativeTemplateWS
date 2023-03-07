@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Platform, View } from 'react-native';
+import { Button, Platform, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { PropTypes } from 'prop-types';
@@ -45,7 +45,7 @@ export function HomeScreen(props) {
   return (
     <Container style={{ backgroundColor: 'powderblue' }}>
       {props.fetchingTracks ? (
-        <h2>loading..</h2>
+        <Text>loading..</Text>
       ) : (
         <View>
           <ItunesSearch
@@ -68,7 +68,7 @@ export function HomeScreen(props) {
 }
 
 HomeScreen.propTypes = {
-  tracks: PropTypes.object,
+  tracks: PropTypes.array,
   fetchingTracks: PropTypes.bool,
   fetchingTracksError: PropTypes.string,
   dispatchfetchTracks: PropTypes.func
