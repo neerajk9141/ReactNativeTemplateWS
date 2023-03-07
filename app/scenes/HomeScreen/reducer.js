@@ -23,13 +23,13 @@ export const fetchTracksFromItunes = state =>
     .set('fetchingTracks', true)
     .set('fetchingTracksError', null);
 
-export const successFetchTracks = (state, { tracks }) =>
+export const successFetchTracks = state =>
   state
-    .set('tracks', tracks)
+    .set('tracks', [])
     .set('fetchingTracks', false)
     .set('fetchingTracksError', null);
 
-export const failureFetchTracks = (state, { errorMessage }) =>
+export const failureFetchTracks = (state, errorMessage) =>
   state
     .set('tracks', [])
     .set('fetchingTracks', false)

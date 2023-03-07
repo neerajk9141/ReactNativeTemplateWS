@@ -2,18 +2,14 @@ import { put, call, takeLatest } from 'redux-saga/effects';
 
 import { getItunesItem } from '@services/ItunesService';
 
-import {
-  homeScreenActions,
-  homeScreenTypes,
-  fetchTracksFromItunes
-} from './reducer';
+import { homeScreenActions, homeScreenTypes } from './reducer';
 
 export function* fetchItunesTracks(action) {
   try {
-    const response = yield call(getItunesItem(action.trackName));
+    const response = yield call(getItunesItem, action.trackName);
     if (response.ok) {
       const { data } = response;
-      yield put(homeScreenActions.successFetchtracks(data));
+      yield put(homeScreenActions.successFetchTracks(data.results));
     } else {
       yield put(
         homeScreenActions.failureFetchTracks(
@@ -27,5 +23,5 @@ export function* fetchItunesTracks(action) {
 }
 
 export default function* homeScreenContainerSaga() {
-  yield takeLatest(homeScreenTypes.REQUEST_FETCH_TRACKS, fetchTracksFromItunes);
+  yield takeLatest(homeScreenTypes.REQUEST_FETCH_TRACKS, fetchItunesTracks);
 }
