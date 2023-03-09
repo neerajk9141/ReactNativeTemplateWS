@@ -1,7 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
-
-import { SearchBar } from '@rneui/themed';
+import { View, TextInput } from 'react-native';
 
 const style = {
   container: {
@@ -10,17 +8,27 @@ const style = {
     width: 370,
     height: 200,
     marginTop: 30
+  },
+  input: {
+    height: 60,
+    margin: 0,
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 15,
+    fontSize: 16
   }
 };
 
 export default function AppSearchBar() {
-  const updateSearch = () => {};
+  const [text, onChangeText] = React.useState('');
+
   return (
     <View style={style.container}>
-      <SearchBar
-        placeholder="Search tracks.."
-        onChangeText={updateSearch()}
-        value=""
+      <TextInput
+        style={style.input}
+        placeholder="Search here.."
+        onChangeText={onChangeText}
+        value={text}
       />
     </View>
   );

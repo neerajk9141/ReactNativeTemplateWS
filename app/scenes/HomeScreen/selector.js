@@ -9,7 +9,7 @@ export const selectTracks = () =>
 
 export const selectTrackIsLoading = () =>
   createSelector(selectHomeDomain, substate =>
-    get(substate, 'fetchingTracks', null)
+    get(substate, 'fetchingTracks', false)
   );
 
 export const selectTrackErrorMessage = () =>
