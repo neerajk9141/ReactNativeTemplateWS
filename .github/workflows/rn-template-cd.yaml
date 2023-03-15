@@ -1,9 +1,7 @@
 name: rn-template-cd
 on:
-  workflow_dispatch:
   pull_request:
-    branches:
-      - main
+    branches: [ master ]
 jobs:
   build:
     name: Install and build
