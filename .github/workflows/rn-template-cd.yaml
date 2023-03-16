@@ -20,4 +20,4 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Build on EAS
-        run: eas build --platform ios 
+        run: eas build --platform ios --non-interactive
