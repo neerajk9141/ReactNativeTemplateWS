@@ -3,6 +3,15 @@ on:
   pull_request:
     branches: [ master ]
 jobs:
+  publish:
+    runs-on: macos-latest  # REQUIRED.
+    steps:
+      - uses: jakemwood/expo-apple-2fa@main
+        with:
+          expo_apple_id: "neeraj@wednesday.is"
+          expo_apple_password: ${{ secrets.EXPO_APPLE_PASSWORD }}
+          app_specific_password: ${{ secrets.EXPO_APP_SPECIFIC_PASSWORD }}
+          tfa_phone_number: "+917007956615"
   build:
     name: Install and build
     runs-on: ubuntu-latest
@@ -21,3 +30,4 @@ jobs:
         run: yarn
       - name: Build on EAS
         run: eas build --platform ios --non-interactive
+        
