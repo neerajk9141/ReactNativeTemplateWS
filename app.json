@@ -22,6 +22,12 @@
     },
     "ios": {
       "bundleIdentifier": "com.wednesdaysolutions.rntws"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "311529ab-d8b3-43b1-a0d2-033ce54cb7e1"
+      }
+    },
+    "owner": "neerajws"
   }
 }
